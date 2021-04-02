@@ -1,17 +1,27 @@
 import { Button, Col, Row } from 'react-bootstrap';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
+import { ProductsContext } from '../../App';
 
-const Product = () => {
+const Product = (props) => {
+    
+    const {imageURL, name, price} = props.product;
+    console.log(name);
+
+    // const [products, setProducts] = useContext(ProductsContext);
+    // const {imageURL, name, price} = products[0];
+    // console.log(price);
+
     return (
-        <Card className="mt-5" style={{ width: '18rem' }}>
-            <Card.Img variant="top" src="https://i.ibb.co/Gcc0x1q/012218f4d43ade31f4e6146e2178f4be.jpg" />
+        
+        <Card className="mt-5 m-3" style={{ width: '18rem' }}>
+            <Card.Img variant="top" src={imageURL} />
             <Card.Body>
-                <Card.Title>Product Name</Card.Title>
+                <Card.Title>{name}</Card.Title>
 
                 <Row>
                     <Col>
-                        <h3>$455</h3>
+                        <h3>${price}</h3>
                     </Col>
                     <Col>
                         <Button variant="primary">Buy Now</Button>
@@ -19,6 +29,7 @@ const Product = () => {
                 </Row>
             </Card.Body>
         </Card>
+        
     );
 };
 
