@@ -8,16 +8,11 @@ import { AllProductsContext } from '../../App';
 const Home = () => {
 
     const [allProducts, setAllProducts] = useContext(AllProductsContext);
-    console.log(allProducts);
 
     const [products, setProducts] = useState([]);
-    console.log(products);
-
-    // const [events, setEvents] = useState([]);
-    // console.log(events);
-
+    
     useEffect(() => {
-        fetch('http://localhost:5055/products')
+        fetch('https://fast-stream-29838.herokuapp.com/products')
             .then(res => res.json())
             .then(data => {
                 setProducts(data);

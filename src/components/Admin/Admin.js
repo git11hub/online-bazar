@@ -13,7 +13,7 @@ const Admin = () => {
             price: data.price,
             imageURL: imageURL
         };
-        const url = `http://localhost:5055/addEvent`;
+        const url = `https://fast-stream-29838.herokuapp.com/addEvent`;
 
         fetch(url, {
             method: 'POST',
@@ -46,11 +46,14 @@ const Admin = () => {
 
                 <input name="name" defaultValue="" placeholder="Product Name" ref={register} />
                 <br />
+                <br />
 
                 <input name="price" defaultValue="" placeholder="Product Price" ref={register} />
                 <br />
+                <br />
 
                 <input name="exampleRequired" type="file" onChange={handleImageUpload} />
+                <br />
                 <br />
 
                 <input type="submit" />

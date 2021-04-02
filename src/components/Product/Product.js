@@ -7,7 +7,6 @@ import { useHistory } from 'react-router';
 const Product = (props) => {
     
     const {imageURL, name, price, _id} = props.product;
-    // console.log(_id);
 
     const history = useHistory();
 

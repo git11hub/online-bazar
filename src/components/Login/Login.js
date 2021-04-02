@@ -13,7 +13,6 @@ const Login = () => {
     let history = useHistory();
     let location = useLocation();
     let { from } = location.state || { from: { pathname: "/" } };
-    console.log(loggedInUser);
 
     if (firebase.apps.length === 0) {
         firebase.initializeApp(firebaseConfig);
@@ -24,11 +23,9 @@ const Login = () => {
         firebase.auth()
             .signInWithPopup(provider)
             .then((result) => {
-                // console.log(result);
                 const { displayName, email } = result.user;
                 const signedInUser = { name: displayName, email };
                 setLoggedInUser(signedInUser);
-                console.log(email);
                 history.replace(from);
             }).catch((error) => {
 
