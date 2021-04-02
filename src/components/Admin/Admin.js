@@ -1,4 +1,5 @@
 import axios from 'axios';
+import { Button } from 'react-bootstrap';
 import React, { useState } from 'react';
 import { Container } from 'react-bootstrap';
 import { useForm } from "react-hook-form";
@@ -42,6 +43,10 @@ const Admin = () => {
     }
     return (
         <Container className="mt-5">
+            <Button className="m-2" variant="success">Add Product</Button>
+            <Button className="m-2" variant="info">Manage Product</Button>
+            <br/>
+            <br/>
             <form onSubmit={handleSubmit(onSubmit)}>
 
                 <input name="name" defaultValue="" placeholder="Product Name" ref={register} />

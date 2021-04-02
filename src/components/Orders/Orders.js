@@ -17,10 +17,10 @@ const Orders = () => {
                 <tbody>
                     <tr>
                         <td>1</td>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td>@mdo</td>
+                        <td>example@gmail.com</td>
+                        <td>Honey</td>
+                        <td>$350</td>
+                        <td>10-04-2021</td>
                     </tr>                    
                 </tbody>
             </Table>
