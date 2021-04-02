@@ -13,16 +13,17 @@ import Admin from './components/Admin/Admin';
 import Header from './components/Header/Header';
 import Login from './components/Login/Login';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute';
+import Checkout from './components/Checkout/Checkout';
 
 export const UserContext = createContext();
-export const ProductsContext = createContext();
+export const AllProductsContext = createContext();
 
 function App() {
   const [loggedInUser, setLoggedInUser] = useState({});
-  const [products, setProducts] = useState({});
+  const [allProducts, setAllProducts] = useState([]);
   return (
     <UserContext.Provider value={[loggedInUser, setLoggedInUser]}>
-      <ProductsContext.Provider value={[products, setProducts]}>
+      <AllProductsContext.Provider value={[allProducts, setAllProducts]}>
         <Router>
           <Header />
           <Switch>
@@ -35,6 +36,9 @@ function App() {
             <PrivateRoute path="/orders">
               <Orders />
             </PrivateRoute>
+            <Route path="/checkout/:id">
+              <Checkout />
+            </Route>
             <Route path="/admin">
               <Admin />
             </Route>
@@ -43,7 +47,7 @@ function App() {
             </Route>
           </Switch>
         </Router>
-      </ProductsContext.Provider>
+      </AllProductsContext.Provider>
     </UserContext.Provider>
   );
 }

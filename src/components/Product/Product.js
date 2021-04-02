@@ -2,16 +2,19 @@ import { Button, Col, Row } from 'react-bootstrap';
 import React, { useContext } from 'react';
 import { Card } from 'react-bootstrap';
 import { ProductsContext } from '../../App';
+import { useHistory } from 'react-router';
 
 const Product = (props) => {
     
-    const {imageURL, name, price} = props.product;
-    console.log(name);
+    const {imageURL, name, price, _id} = props.product;
+    // console.log(_id);
 
-    // const [products, setProducts] = useContext(ProductsContext);
-    // const {imageURL, name, price} = products[0];
-    // console.log(price);
+    const history = useHistory();
 
+    const order = () => {
+        history.push(`/checkout/${_id}`);
+    }
+    
     return (
         
         <Card className="mt-5 m-3" style={{ width: '18rem' }}>
@@ -24,7 +27,7 @@ const Product = (props) => {
                         <h3>${price}</h3>
                     </Col>
                     <Col>
-                        <Button variant="primary">Buy Now</Button>
+                        <Button onClick={order} variant="primary">Buy Now</Button>
                     </Col>
                 </Row>
             </Card.Body>

@@ -3,11 +3,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import { Container, Form, FormControl, Nav, Navbar, Row } from 'react-bootstrap';
 import { Button } from 'react-bootstrap';
 import Product from '../Product/Product';
-import { ProductsContext } from '../../App';
+import { AllProductsContext } from '../../App';
 
 const Home = () => {
 
-    const [products, setProducts] = useContext(ProductsContext);
+    const [allProducts, setAllProducts] = useContext(AllProductsContext);
+    console.log(allProducts);
+
+    const [products, setProducts] = useState([]);
     console.log(products);
 
     // const [events, setEvents] = useState([]);
@@ -16,20 +19,18 @@ const Home = () => {
     useEffect(() => {
         fetch('http://localhost:5055/products')
             .then(res => res.json())
-            .then(data => setProducts(data))
-    },[])
+            .then(data => {
+                setProducts(data);
+                setAllProducts(data);
+            })
+    }, [])
 
     return (
         <Container>
             <Row>
-                
-                
                 {
-                    products.map(product =><Product product={product}></Product>)
+                    products.map(product => <Product product={product}></Product>)
                 }
-                {/* {
-                    events.map(event => <Product></Product>)
-                } */}
             </Row>
 
         </Container>

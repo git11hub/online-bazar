@@ -40,7 +40,6 @@ const Login = () => {
         <Container className="mt-5">
             <form action="">
             <Button onClick={handleGoogleSignIn} variant="warning"><strong>Sign In with Google</strong></Button>
-            <h3>Hi, {loggedInUser.name}</h3>
             </form>
         </Container>
     );
